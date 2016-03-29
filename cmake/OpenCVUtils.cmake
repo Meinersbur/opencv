@@ -43,8 +43,8 @@ macro(ocv_assert)
 endmacro()
 
 macro(ocv_debug_message)
-#  string(REPLACE ";" " " __msg "${ARGN}")
-#  message(STATUS "${__msg}")
+  string(REPLACE ";" " " __msg "${ARGN}")
+  message(STATUS "${__msg}")
 endmacro()
 
 macro(ocv_check_environment_variables)
@@ -747,6 +747,7 @@ function(ocv_add_executable target)
 endfunction()
 
 function(ocv_add_library target)
+  message("ocv_add_library(${target} ${ARGN})")
   set(cuda_objs "")
   if(HAVE_CUDA)
     set(cuda_srcs "")

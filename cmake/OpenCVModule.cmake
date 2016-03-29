@@ -657,6 +657,7 @@ macro(ocv_glob_module_sources)
   endif()
 
   file(GLOB_RECURSE lib_srcs
+       "${CMAKE_CURRENT_LIST_DIR}/src/*.c"
        "${CMAKE_CURRENT_LIST_DIR}/src/*.cpp"
   )
   file(GLOB_RECURSE lib_int_hdrs
@@ -721,6 +722,7 @@ endmacro()
 #   ocv_create_module(<extra link dependencies>)
 #   ocv_create_module()
 macro(ocv_create_module)
+  message("ocv_create_module(" ${ARGN} ")")
   ocv_debug_message("ocv_create_module(" ${ARGN} ")")
   set(OPENCV_MODULE_${the_module}_LINK_DEPS "${OPENCV_MODULE_${the_module}_LINK_DEPS};${ARGN}" CACHE INTERNAL "")
   if(${BUILD_opencv_world} AND OPENCV_MODULE_${the_module}_IS_PART_OF_WORLD)
@@ -755,6 +757,7 @@ macro(ocv_create_module)
 endmacro()
 
 macro(_ocv_create_module)
+  message("_ocv_create_module")
   # The condition we ought to be testing here is whether ocv_add_precompiled_headers will
   # be called at some point in the future. We can't look into the future, though,
   # so this will have to do.

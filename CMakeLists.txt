@@ -280,6 +280,9 @@ OCV_OPTION(GENERATE_ABI_DESCRIPTOR    "Generate XML file for abi_compliance_chec
 
 OCV_OPTION(DOWNLOAD_EXTERNAL_TEST_DATA "Download external test data (Python executable and OPENCV_TEST_DATA_PATH environment variable may be required)" OFF )
 
+## pencil BEGIN
+option(ENABLE_PENCIL "Replace some kernels with their PENCIL version" OFF)
+## pencil END
 
 if(ENABLE_IMPL_COLLECTION)
   add_definitions(-DCV_COLLECT_IMPL_DATA)
